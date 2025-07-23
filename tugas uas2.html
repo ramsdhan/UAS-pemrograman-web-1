@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>besokpagi - besokpagi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --dark: #1e293b;
+            --light: #f8fafc;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--dark);
+            scroll-behavior: smooth;
+        }
+        
+        section {
+            padding: 6rem 0;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .navbar.scrolled {
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(rgba(30, 64, 175, 0.7), rgba(37, 99, 235, 0.7));
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d86f0350-f86a-4c6b-a616-477edd61d1e1.png') no-repeat center center/cover;
+            z-index: -1;
+        }
+        
+        /* Card */
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        
+        /* Button */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--secondary);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate {
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            section {
+                padding: 4rem 0;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar py-4">
+        <div class="container flex justify-between items-center">
+            <div class="logo text-2xl font-bold" style="color: var(--primary);">
+                besok<span style="color: var(--secondary);">pagi</span>
+            </div>
+            <div class="nav-links hidden md:flex space-x-8">
+                <a href="#home" class="text-white hover:text-blue-200 transition">Beranda</a>
+                <a href="#about" class="text-white hover:text-blue-200 transition">Tentang Kami</a>
+                <a href="#services" class="text-white hover:text-blue-200 transition">Layanan</a>
+                <a href="#portfolio" class="text-white hover:text-blue-200 transition">Portofolio</a>
+                <a href="#team" class="text-white hover:text-blue-200 transition">Tim</a>
+                <a href="#contact" class="text-white hover:text-blue-200 transition">Kontak</a>
+            </div>
+            <button class="md:hidden text-white text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content text-white animate" style="animation-delay: 0.2s;">
+                <h1 class="text-5xl font-bold mb-6">Membangun Masa Depan Bersama</h1>
+                <p class="text-xl mb-8 max-w-2xl">
+                    Kami adalah perusahaan terkemuka di bidang teknologi yang berkomitmen untuk memberikan solusi inovatif untuk bisnis Anda.
+                </p>
+                <a href="#contact" class="btn btn-primary">Hubungi Kami</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang Kami -->
+    <section id="about" class="bg-gray-50">
+        <div class="container">
+            <div class="section-header mb-16 text-center">
+                <h2 class="text-4xl font-bold mb-4">Tentang Kami</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Perusahaan kami didirikan dengan misi untuk menyediakan solusi terbaik bagi klien kami.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="animate" style="animation-delay: 0.3s;">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d92823f2-5604-43e4-805a-3fbdbd437232.png" alt="Tim perusahaan sedang bekerja bersama di ruang meeting modern" class="rounded-lg shadow-xl w-full">
+                </div>
+                
+                <div class="animate" style="animation-delay: 0.5s;">
+                    <h3 class="text-2xl font-bold mb-4">Sejarah Perusahaan</h3>
+                    <p class="text-gray-700 mb-6">
+                        Didirikan pada tahun 2010, kami telah tumbuh dari tim kecil menjadi perusahaan dengan lebih dari 100 karyawan berpengalaman. Dengan fokus pada inovasi dan kualitas, kami telah membantu ratusan klien mencapai tujuan bisnis mereka.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="text-blue-500 mr-4 mt-1">
+                                <i class="fas fa-bullseye fa-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Visi</h4>
+                                <p class="text-gray-600">
+                                    Menjadi pemimpin industri dalam menyediakan solusi teknologi terbaik di Asia Tenggara.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-blue-500 mr-4 mt-1">
+                                <i class="fas fa-tasks fa-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Misi</h4>
+                                <p class="text-gray-600">
+                                    Memberikan produk dan layanan berkualitas tinggi dengan harga kompetitif, serta membangun hubungan jangka panjang dengan klien.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Layanan -->
+    <section id="services">
+        <div class="container">
+            <div class="section-header mb-16 text-center">
+                <h2 class="text-4xl font-bold mb-4">Layanan Kami</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Kami menyediakan berbagai layanan profesional untuk mendukung pertumbuhan bisnis Anda.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card animate" style="animation-delay: 0.3s;">
+                    <div class="p-6">
+                        <div class="text-blue-500 text-4xl mb-4">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Pengembangan Aplikasi</h3>
+                        <p class="text-gray-600">
+                            Solusi aplikasi kustom untuk mendigitalisasi proses bisnis Anda dengan teknologi terkini.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card animate" style="animation-delay: 0.5s;">
+                    <div class="p-6">
+                        <div class="text-blue-500 text-4xl mb-4">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Konsultasi Bisnis</h3>
+                        <p class="text-gray-600">
+                            Analisis mendalam dan strategi untuk meningkatkan efisiensi dan profitabilitas bisnis Anda.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card animate" style="animation-delay: 0.7s;">
+                    <div class="p-6">
+                        <div class="text-blue-500 text-4xl mb-4">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Solusi Cloud</h3>
+                        <p class="text-gray-600">
+                            Infrastruktur cloud yang aman dan skalabel untuk mendukung operasi bisnis Anda 24/7.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portofolio -->
+    <section id="portfolio" class="bg-gray-50">
+        <div class="container">
+            <div class="section-header mb-12 text-center">
+                <h2 class="text-4xl font-bold mb-4">Portofolio</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Beberapa proyek terbaru yang telah kami selesaikan untuk klien kami.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card animate" style="animation-delay: 0.3s;">
+                    <div class="card-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/21829422-882c-4d33-94dc-4e9444cc69f5.png" alt="Dashboard admin platform e-commerce modern dengan tampilan statistik penjualan" />
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Platform E-Commerce</h3>
+                        <p class="text-gray-600 mb-4">
+                            Sistem e-commerce lengkap dengan manajemen produk, pembayaran online, dan analitik.
+                        </p>
+                        <a href="#" class="text-blue-500 font-medium">Lihat Detail →</a>
+                    </div>
+                </div>
+                
+                <div class="card animate" style="animation-delay: 0.5s;">
+                    <div class="card-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9188fed7-fcdd-45b7-94c1-873490f0f855.png" alt="Tampilan mobile app dengan antarmuka pengguna modern untuk layanan kesehatan" />
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Aplikasi Layanan Kesehatan</h3>
+                        <p class="text-gray-600 mb-4">
+                            Aplikasi mobile untuk reservasi dokter dan manajemen rekam medis pasien.
+                        </p>
+                        <a href="#" class="text-blue-500 font-medium">Lihat Detail →</a>
+                    </div>
+                </div>
+                
+                <div class="card animate" style="animation-delay: 0.7s;">
+                    <div class="card-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/02117128-3781-4364-a2c0-22d48341a9f7.png" alt="Sistem ERP perusahaan dengan dashboard analisis data bisnis yang kompleks" />
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Sistem ERP Perusahaan</h3>
+                        <p class="text-gray-600 mb-4">
+                            Solusi terintegrasi untuk manajemen operasi, SDM, dan keuangan perusahaan.
+                        </p>
+                        <a href="#" class="text-blue-500 font-medium">Lihat Detail →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 animate" style="animation-delay: 0.9s;">
+                <a href="#" class="btn btn-primary">Lihat Semua Proyek</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tim -->
+    <section id="team">
+        <div class="container">
+            <div class="section-header mb-16 text-center">
+                <h2 class="text-4xl font-bold mb-4">Tim Kami</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Berpengalaman, profesional, dan berkomitmen terhadap kesuksesan Anda.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center animate" style="animation-delay: 0.3s;">
+                    <div class="rounded-full overflow-hidden w-40 h-40 mx-auto mb-4 shadow-md">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3a6898ac-921e-4637-9c6a-da08fe57fa95.png" alt="Foto CEO perusahaan pria profesional berusia 40-an dengan latar belakang kantor modern" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold">John Doe</h3>
+                    <p class="text-blue-500 mb-2">CEO & Pendiri</p>
+                    <p class="text-gray-600">
+                        Memimpin perusahaan dengan visi strategis dan pengalaman lebih dari 15 tahun di industri teknologi.
+                    </p>
+                    <div class="flex justify-center space-x-3 mt-4">
+                        <a href="#" class="text-gray-500 hover:text-blue-500 transition"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-blue-500 transition"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="text-center animate" style="animation-delay: 0.5s;">
+                    <div class="rounded-full overflow-hidden w-40 h-40 mx-auto mb-4 shadow-md">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/41c540ed-68ff-4965-9673-c07440eaa26b.png" alt="Foto CTO perusahaan wanita dengan kacamata dan latar belakang teknologi" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold">Jane Smith</h3>
+                    <p class="text-blue-500 mb-2">CTO</p>
+                    <p class="text-gray-600">
+                        Ahli teknologi dengan spesialisasi dalam arsitektur sistem dan pengembangan perangkat lunak skala besar.
+                    </p>
+                    <div class="flex justify-center space-x-3 mt-4">
+                        <a href="#" class="text-gray-500 hover:text-blue-500 transition"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-blue-500 transition"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="text-center animate" style="animation-delay: 0.7s;">
+                    <div class="rounded-full overflow-hidden w-40 h-40 mx-auto mb-4 shadow-md">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1bce73a4-e9e0-4727-a6b1-c97a9fec4ea6.png" alt="Foto Head of Marketing pria muda dengan background kreatif" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold">Michael Brown</h3>
+                    <p class="text-blue-500 mb-2">Head of Marketing</p>
+                    <p class="text-gray-600">
+                        Spesialis pemasaran digital dengan pengalaman dalam membangun merek dan strategi pertumbuhan.
+                    </p>
+                    <div class="flex justify-center space-x-3 mt-4">
+                        <a href="#" class="text-gray-500 hover:text-blue-500 transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-blue-500 transition"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="text-center animate" style="animation-delay: 0.9s;">
+                    <div class="rounded-full overflow-hidden w-40 h-40 mx-auto mb-4 shadow-md">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/dac9d7c4-ad55-45b4-aaf7-b5c185336331.png" alt="Foto Project Manager wanita profesional dengan ekspresi ramah" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold">Sarah Johnson</h3>
+                    <p class="text-blue-500 mb-2">Project Manager</p>
+                    <p class="text-gray-600">
+                        Memastikan setiap proyek berjalan tepat waktu dan sesuai anggaran dengan metodologi Agile.
+                    </p>
+                    <div class="flex justify-center space-x-3 mt-4">
+                        <a href="#" class="text-gray-500 hover:text-blue-500 transition"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-blue-500 transition"><i class="fab fa-slack"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak -->
+    <section id="contact" class="bg-gray-900 text-white">
+        <div class="container">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="animate" style="animation-delay: 0.3s;">
+                    <h2 class="text-3xl font-bold mb-6">Hubungi Kami</h2>
+                    <p class="text-gray-300 mb-8">
+                        Tertarik dengan layanan kami? Kirim pesan dan kami akan segera menghubungi Anda.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="text-blue-400 mr-4 mt-1">
+                                <i class="fas fa-map-marker-alt fa-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Kantor Pusat</h4>
+                                <p class="text-gray-300">
+                                    Gedung Perkantoran ABC<br>
+                                    Jl. Sudirman No. 123<br>
+                                    Jakarta Selatan, Indonesia
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-blue-400 mr-4 mt-1">
+                                <i class="fas fa-phone-alt fa-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Telepon</h4>
+                                <p class="text-gray-300">
+                                    +62 21 1234 5678<br>
+                                    Senin-Jumat, 09:00-17:00 WIB
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-blue-400 mr-4 mt-1">
+                                <i class="fas fa-envelope fa-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Email</h4>
+                                <p class="text-gray-300">
+                                    info@besokpagi.com<br>
+                                    sales@besokpagi.com
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-4 mt-8">
+                        <a href="#" class="bg-blue-600 hover:bg-blue-700 w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-blue-400 hover:bg-blue-500 w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-red-600 hover:bg-red-700 w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 hover:bg-gray-600 w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="animate" style="animation-delay: 0.5s;">
+                    <form class="bg-gray-800 p-8 rounded-lg">
+                        <div class="mb-6">
+                            <label for="name" class="block mb-2 font-medium">Nama Lengkap</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="email" class="block mb-2 font-medium">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="subject" class="block mb-2 font-medium">Subjek</label>
+                            <select id="subject" class="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">Pilih subjek</option>
+                                <option value="sales">Informasi Penjualan</option>
+                                <option value="support">Dukungan Teknis</option>
+                                <option value="partnership">Kerjasama Bisnis</option>
+                                <option value="career">Lowongan Pekerjaan</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="message" class="block mb-2 font-medium">Pesan</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary w-full">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 py-12">
+        <div class="container">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-white">Tentang Kami</h3>
+                    <p class="mb-4">
+                        Perusahaan teknologi terkemuka yang menyediakan solusi inovatif untuk bisnis Anda sejak 2010.
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-white">Layanan</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-blue-400 transition">Pengembangan Aplikasi</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Konsultasi IT</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Solusi Cloud</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Integrasi Sistem</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-white">Link Cepat</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="hover:text-blue-400 transition">Beranda</a></li>
+                        <li><a href="#about" class="hover:text-blue-400 transition">Tentang Kami</a></li>
+                        <li><a href="#services" class="hover:text-blue-400 transition">Layanan</a></li>
+                        <li><a href="#portfolio" class="hover:text-blue-400 transition">Portofolio</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-white">Berlangganan</h3>
+                    <p class="mb-4">
+                        Dapatkan pembaruan dan penawaran terbaru dari kami.
+                    </p>
+                    <form class="flex">
+                        <input type="email" placeholder="Email Anda" class="px-4 py-2 rounded-l-lg bg-gray-700 text-white focus:outline-none w-full">
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-r-lg transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="mb-4 md:mb-0">
+                        © 2023 Nama Perusahaan. Seluruh hak cipta dilindungi.
+                    </p>
+                    
+                    <div class="flex space-x-6">
+                        <a href="#" class="hover:text-blue-400 transition">Kebijakan Privasi</a>
+                        <a href="#" class="hover:text-blue-400 transition">Syarat & Ketentuan</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', animateOnScroll);
+        document.addEventListener('DOMContentLoaded', animateOnScroll);
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.navbar button');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            navLinks.classList.toggle('hidden');
+        });
+        
+        // Contact form
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simple validation
+                const name = this.querySelector('#name').value;
+                const email = this.querySelector('#email').value;
+                const message = this.querySelector('#message').value;
+                
+                if (!name || !email || !message) {
+                    alert('Harap isi semua bidang yang wajib diisi.');
+                    return;
+                }
+                
+                // Here you would typically send the form data to a server
+                alert('Terima kasih telah menghubungi kami! Kami akan segera merespons pesan Anda.');
+                this.reset();
+            });
+        }
+    </script>
+</body>
+</html>
+
